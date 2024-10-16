@@ -1,3 +1,4 @@
+
 import os.path
 import zipfile
 import pandas as pd
@@ -14,10 +15,10 @@ if not os.path.exists("dataset"):
     print("Dataset extracted successfully!\n")
     os.remove("dataset.zip")
 
-global_temperature_csv            = pd.read_csv('.\\dataset\\GlobalTemperatures.csv').to_dict()
-global_temperature_state_csv     = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByState.csv').to_dict()
-global_temperature_country_csv   = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByCountry.csv').to_dict()
-global_temperature_majorcity_csv = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByMajorCity.csv').to_dict()
-global_temperature_city_csv      = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByCity.csv').to_dict()
+global_temperature_csv               = pd.read_csv('.\\dataset\\GlobalTemperatures.csv').to_dict()
+global_temperature_state_csv         = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByState.csv').to_dict()
+global_temperature_country_csv       = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByCountry.csv').to_dict()
+global_temperature_majorcity_csv     = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByMajorCity.csv').to_dict()
+global_temperature_city_csv          = pd.read_csv('.\\dataset\\GlobalLandTemperaturesByCity.csv').to_dict()
 
 
