@@ -3,7 +3,7 @@ import os.path
 import zipfile
 import pandas as pd
 import urllib.request
-
+import matplotlib.pyplot as plt
 
 
 if not os.path.exists("dataset"):
@@ -26,7 +26,6 @@ global_temperature_city_csv          = pd.read_csv('.\\dataset\\GlobalLandTemper
 
 country = input("Enter the country name: ")
 
-import matplotlib.pyplot as plt
 
 # Filter the dataframe for the given country
 country_data = global_temperature_country_df[global_temperature_country_df['Country'] == country]
