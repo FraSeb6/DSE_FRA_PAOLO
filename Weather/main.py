@@ -2,6 +2,7 @@
 import os.path
 import zipfile
 import pandas as pd
+import geopandas as gpd
 import urllib.request
 import matplotlib.pyplot as plt
 
@@ -133,10 +134,30 @@ plt.grid(True)
 plt.show()
 
 
+# Load the world map shapefile
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+
+# Ask the user for the year to visualize
+year = int(input("Enter the year to visualize (between 1750 and 2013): "))
+
+# Filter the data for the selected year
+year_data = global_temperature_country_df[global_temperature_country_df['dt'].dt.year == year]
+
+# Calculate the average temperature for each country
+avg_temp_by_country = year_data.groupby('Country')['AverageTemperature'].mean().reset_index()
+
+# Merge the average temperature data with the world map
+world = world.merge(avg_temp_by_country, how='left', left_on='name', right_on='Country')
+
+# Plot the Choropleth map
+fig, ax = plt.subplots(1, 1, figsize=(15, 10))
+world.boundary.plot(ax=ax)
+world.plot(column='AverageTemperature', ax=ax, legend=True, cmap='coolwarm', missing_kwds={"color": "lightgrey"})
+plt.title(f'Average Temperature by Country in {year}')
+plt.show()
 
 
-
-
+"""
 import geopy.distance
 
 # Load the major city temperature data
@@ -179,3 +200,4 @@ while current_city != 'Los Angeles':
 
 print("Suggested route from Beijing to Los Angeles:")
 print(" -> ".join(route))
+"""
