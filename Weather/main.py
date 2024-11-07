@@ -27,8 +27,11 @@ global_temperature_majorcity_csv        = pd.read_csv('.\\dataset\\GlobalLandTem
 
 country = input("Enter the country name: ")
 
+<<<<<<< HEAD
 country_data = pd.DataFrame()
 
+=======
+>>>>>>> 7749793cc65217e07a8eb37ea8d36f2f58ec1398
 
 # Filter the dataframe for the given country
 country_data = global_temperature_country_df[global_temperature_country_df['Country'] == country]
